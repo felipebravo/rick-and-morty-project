@@ -1,6 +1,6 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Button } from "../../components/Button/styles";
-import { Background } from "./styles";
+import { Background } from "../../components/Background/styles";
 import { GiUfo } from "react-icons/gi";
 
 export const PageNotFound = () => {
