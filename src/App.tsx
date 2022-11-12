@@ -1,10 +1,13 @@
 import React from "react";
+import { PageNotFound } from "./pages/404";
+import { GlobalStyle } from "./styles";
 
 function App() {
   return (
-    <div className="App">
-      <></>
-    </div>
+    <>
+      <GlobalStyle />
+      <PageNotFound />
+    </>
   );
 }
 
