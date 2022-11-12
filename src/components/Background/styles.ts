@@ -2,6 +2,8 @@ import styled from "styled-components";
 import BackgroundImg from "../../assets/Background-img.svg";
 
 export const Background = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
