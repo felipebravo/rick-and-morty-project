@@ -14,9 +14,10 @@ export const ModalBackground = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-color: var(--opcacity-green);
+  background-color: var(--opacity-green);
 
   z-index: 1;
+  inset: 0;
   position: fixed;
   top: 0;
 `;
@@ -24,22 +25,23 @@ export const ModalBackground = styled.div`
 const BackgroundVariations = {
   alive: css`
     background-image: url(${BackgroundAlive});
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
   `,
   dead: css`
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url(${BackgroundDead});
+    background-size: 100% 100%;
   `,
 };
 
 export const ModalStyled = styled.div<iBackgroundVariationsProps>`
   ${({ variant }) => BackgroundVariations[variant || "alive"]}
 
-  width: 80%;
-  height: 90%;
+  width: 25%;
+  height: 70%;
 
-  border-radius: 4px;
+  border-radius: 8px;
 `;
 
-// background-image: url(${BackgroundDead});
+export const ModalContent = styled.div`
+  padding: 10px;
+`;

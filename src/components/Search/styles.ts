@@ -2,16 +2,18 @@ import styled from "styled-components";
 
 export const SearchAndGif = styled.div`
   position: absolute;
-  bottom: 20%;
+  bottom: 30%;
   left: 0px;
 
   width: fit-content;
   height: fit-content;
+  padding: 20px;
 
   display: flex;
   flex-direction: column;
   align-self: flex-start;
   align-items: flex-start;
+  gap: 10px;
 
   .search__style {
     display: flex;
@@ -36,14 +38,25 @@ export const SearchAndGif = styled.div`
       color: var(--primary-yellow);
     }
 
-    :active {
-      border-color: var(--primary-yellow);
+    :focus {
+      border: none;
     }
   }
 
-  .gif {
-    width: 300px;
+  .gif__style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 300px;
+    max-height: 300px;
+    overflow: hidden;
 
     border-radius: 50%;
+
+    img {
+      width: 150%;
+      align-self: center;
+    }
   }
 `;

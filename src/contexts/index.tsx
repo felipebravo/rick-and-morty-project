@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { api } from "../services/api";
 
 interface iProviderProps {
@@ -9,19 +9,26 @@ interface iApiProvider {
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   isLoading: boolean;
   handleModal(): void;
-  isModalOpen: string | null;
-  getCharacters: () => Promise<void>;
+  isModalOpen: boolean;
+  characters: iCharacter[];
+  nextPage: () => void;
+  previousPage: () => void;
 }
 
-interface iCharacter {
+interface iOrigin {
+  name: string;
+  url: string;
+}
+
+export interface iCharacter {
   created: string;
-  episode: [];
+  episode: string[];
   gender: string;
   id: number;
   image: string;
   location: {};
   name: string;
-  origin: {};
+  origin: iOrigin;
   species: string;
   status: string;
   type: string;
@@ -32,20 +39,32 @@ export const ApiContext = createContext({} as iApiProvider);
 
 export const ApiProvider = ({ children }: iProviderProps) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isModalOpen, setIsModalOpen] = useState<string | null>("teste");
-  const [characters, setCharacters] = useState<iCharacter[]>();
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [characters, setCharacters] = useState<iCharacter[]>([]);
+  const [page, setPage] = useState<number>(1);
 
-  const getCharacters = async () => {
-    try {
-      const { data } = await api.get("character");
-      setCharacters(data.results);
-    } catch (error) {
-      console.error(error);
-    }
+  useEffect(() => {
+    const getCharacters = async () => {
+      try {
+        const response = await api.get(`character/?page=${page}`);
+        setCharacters(response.data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getCharacters();
+  }, [page]);
+
+  const nextPage = () => {
+    setPage(page + 1);
+  };
+
+  const previousPage = () => {
+    page > 1 && setPage(page - 1);
   };
 
   const handleModal = () => {
-    setIsModalOpen(isModalOpen);
+    setIsModalOpen(!isModalOpen);
   };
 
   return (
@@ -56,7 +75,9 @@ export const ApiProvider = ({ children }: iProviderProps) => {
           isLoading,
           handleModal,
           isModalOpen,
-          getCharacters,
+          characters,
+          nextPage,
+          previousPage,
         }}
       >
         {children}

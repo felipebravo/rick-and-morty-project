@@ -1,33 +1,16 @@
-import React from "react";
 import { GlobalStyle } from "./styles";
-import { api } from "./services/api";
-import { Loading } from "./components/Loading";
-import { Dashboard } from "./pages/Homepage";
-import { ApiContext } from "./contexts";
-import { useContext } from "react";
+import { ApiProvider } from "./contexts/index";
+import { MainRoutes } from "./routes";
 
-function App() {
-  // const { getCharacters } = useContext(ApiContext);
-  const { isModalOpen } = useContext(ApiContext);
-
-  const getCharacters = async () => {
-    try {
-      const { data } = await api.get("character");
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+const App = () => {
   return (
     <>
       <GlobalStyle />
-      {/* <PageNotFound /> */}
-      {/* <Loading /> */}
-      {/* <button onClick={getCharacters}>Aqui!</button> */}
-      <Dashboard />
-      {/* {isModalOpen && } */}
+      <ApiProvider>
+        <MainRoutes />
+      </ApiProvider>
     </>
   );
-}
+};
 
 export default App;

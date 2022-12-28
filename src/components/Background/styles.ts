@@ -12,7 +12,6 @@ export const Background = styled.div`
   height: 100vh;
 
   background-image: url(${BackgroundImg});
-  background-repeat: no-repeat;
   background-size: cover;
 
   h1 {

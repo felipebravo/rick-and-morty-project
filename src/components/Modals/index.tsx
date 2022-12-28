@@ -1,11 +1,18 @@
-import { ModalBackground, ModalStyled } from "./styles";
+import { useContext } from "react";
+import { ApiContext } from "../../contexts";
+import { ModalBackground, ModalContent, ModalStyled } from "./styles";
+import { Button } from "../Button/styles";
 
-export const Modal = ({ children }: any) => {
-  const status = "alive";
+export const Modal = () => {
+  const { handleModal } = useContext(ApiContext);
 
   return (
     <ModalBackground>
-      <ModalStyled variant={status} />
+      <ModalStyled variant={"alive"}>
+        <ModalContent>
+          <Button onClick={() => handleModal()} />
+        </ModalContent>
+      </ModalStyled>
     </ModalBackground>
   );
 };
