@@ -18,11 +18,16 @@ export const SearchAndGif = styled.div`
   .search__style {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
+
+    svg {
+      font-size: 40px;
+      color: var(--primary-green);
+    }
   }
 
   .input {
-    width: 200px;
+    width: 220px;
     height: 40px;
 
     padding: 10px;

@@ -11,6 +11,7 @@ interface iApiProvider {
   handleModal(): void;
   isModalOpen: boolean;
   characters: iCharacter[];
+  locations: iLocation[];
   nextPage: () => void;
   previousPage: () => void;
 }
@@ -35,12 +36,24 @@ export interface iCharacter {
   url: string;
 }
 
+export interface iLocation {
+  id: number;
+  name: string;
+  type: string;
+  dimension: string;
+  residents: string[];
+  url: string;
+  created: string;
+}
+
 export const ApiContext = createContext({} as iApiProvider);
 
 export const ApiProvider = ({ children }: iProviderProps) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [characters, setCharacters] = useState<iCharacter[]>([]);
+  const [locations, setLocations] = useState<iLocation[]>([]);
+  const [residents, setResidents] = useState<string[]>([]);
   const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
@@ -54,6 +67,18 @@ export const ApiProvider = ({ children }: iProviderProps) => {
     };
     getCharacters();
   }, [page]);
+
+  useEffect(() => {
+    const getLocations = async () => {
+      try {
+        const response = await api.get(`location`);
+        setLocations(response.data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getLocations();
+  }, []);
 
   const nextPage = () => {
     setPage(page + 1);
@@ -76,6 +101,7 @@ export const ApiProvider = ({ children }: iProviderProps) => {
           handleModal,
           isModalOpen,
           characters,
+          locations,
           nextPage,
           previousPage,
         }}

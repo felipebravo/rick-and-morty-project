@@ -1,13 +1,18 @@
 import { SearchAndGif } from "./styles";
 import Gif from "../../assets/giphy.gif";
-import { Button } from "../Button/styles";
+import { MdSavedSearch } from "react-icons/md";
 
 export const Search = () => {
   return (
     <SearchAndGif>
       <div className="search__style">
-        <Button />
-        <input className="input" type="text" placeholder="Search..." />
+        <MdSavedSearch />
+        <input
+          className="input"
+          type="text"
+          placeholder="
+Search for a character..."
+        />
       </div>
       <div className="gif__style">
         <img src={Gif} alt="Rick and Morty" />

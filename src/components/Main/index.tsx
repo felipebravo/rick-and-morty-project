@@ -9,7 +9,9 @@ export const Main = () => {
 
   return (
     <StyledMain>
-      <Button onClick={() => previousPage()} />
+      <Button onClick={() => previousPage()}>
+        <span>Previous</span>
+      </Button>
       <StyledUl>
         {characters?.map((char: iCharacter) => (
           <StyledCard key={char.id}>
@@ -23,7 +25,9 @@ export const Main = () => {
           </StyledCard>
         ))}
       </StyledUl>
-      <Button onClick={() => nextPage()} />
+      <Button onClick={() => nextPage()}>
+        <span>Next</span>
+      </Button>
     </StyledMain>
   );
 };

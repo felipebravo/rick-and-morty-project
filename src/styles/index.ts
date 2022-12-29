@@ -14,10 +14,16 @@ export const GlobalStyle = createGlobalStyle`
     border: none;
   }
 
+  a{
+    text-decoration: none;
+    color: var(--primary-blue);
+  }
+
   :root{
     --color-white: #FFFFFF;
+    --opacity-white: #FFFFFF90;
     --color-black: #000000;
-    --opacity-black: #00000050;
+    --opacity-black: #00000090;
     --primary-yellow: #E2E25A;
     --opacity-yellow: #E2E25A50;
     --primary-green: #4E852A;
@@ -28,15 +34,19 @@ export const GlobalStyle = createGlobalStyle`
     --color-title: #00ADC8
   }
 
-  h1{
+  h1, h2{
     font-family: 'Get Schwifty', sans-serif;
+  }
+
+  h3{
+    font-family: monospace, sans-serif;
   }
 
   ul {
     ::-webkit-scrollbar {
     background-color: transparent;
     height: 5px;
-    width: 10px;
+    width: 5px;
     }
 
   ::-webkit-scrollbar-thumb {

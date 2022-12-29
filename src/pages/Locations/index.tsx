@@ -1,13 +1,14 @@
 import { Background } from "../../components/Background/styles";
 import { Header } from "../../components/Header";
 import { Search } from "../../components/Search";
-import { Main } from "../../components/Main";
 
-export const Homepage = () => {
+import { MainLocation } from "../../components/MainLocations";
+
+export const MainLocations = () => {
   return (
     <Background>
       <Header />
-      <Main />
+      <MainLocation />
       <Search />
     </Background>
   );

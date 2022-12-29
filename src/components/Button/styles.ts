@@ -2,27 +2,30 @@ import styled from "styled-components";
 import BackgroundButton from "../../assets/Button.svg";
 
 export const Button = styled.button`
-  width: 40px;
-  height: 40px;
+  width: 130px;
+  height: 100px;
 
   border-radius: 50%;
 
   background-image: url(${BackgroundButton});
   background-repeat: no-repeat;
-  background-size: 200%;
+  background-size: 190%;
   background-position: center;
 
-  animation: spinnerButton 10s infinite;
+  animation: spinnerButton 5s linear infinite;
 
-  svg {
+  span {
     display: none;
-    font-size: 2.5rem;
+
+    font-size: 1.7rem;
+    font-family: "Get Schwifty", sans-serif;
+    font-weight: 700;
   }
 
   &:hover {
     animation: none;
 
-    svg {
+    span {
       display: unset;
     }
   }

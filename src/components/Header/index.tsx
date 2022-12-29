@@ -12,20 +12,20 @@ export const Header = () => {
   return (
     <HeaderStyled>
       <div>
-        <a href="https://www.facebook.com/RickandMorty" target="_blank">
+        <Link to={"/"}>
           <img
             className="navigation__icons"
             src={PhotosImg}
             alt="https://www.facebook.com/RickandMorty"
           />
-        </a>
-        <a href="https://www.instagram.com/rickandmorty/" target="_blank">
+        </Link>
+        <Link to={"/locations"}>
           <img
             className="navigation__icons"
             src={LocationImg}
             alt="https://www.instagram.com/rickandmorty/"
           />
-        </a>
+        </Link>
       </div>
       <div>
         <a href="https://www.facebook.com/RickandMorty" target="_blank">

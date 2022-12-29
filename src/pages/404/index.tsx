@@ -1,7 +1,6 @@
 import { Player } from "@lottiefiles/react-lottie-player";
-import { Button } from "../../components/Button/styles";
 import { Background } from "../../components/Background/styles";
-import { GiUfo } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 export const PageNotFound = () => {
   return (
@@ -13,10 +12,10 @@ export const PageNotFound = () => {
         src="https://assets9.lottiefiles.com/packages/lf20_4jsnlwpe.json"
         style={{ height: "400px", width: "90%" }}
       ></Player>
-      <Button type="button">
-        <GiUfo />
-      </Button>
       <h1>404</h1>
+      <Link to={"/"}>
+        <h2>Go back</h2>
+      </Link>
     </Background>
   );
 };

@@ -37,6 +37,7 @@ export const StyledCard = styled.li`
   }
 
   .unknown {
-    background-color: var(--opacity-black);
+    background-color: var(--opacity-white);
+    color: var(--color-black);
   }
 `;
