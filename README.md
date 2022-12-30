@@ -1,4 +1,4 @@
-# Veja mais <a href="https://rick-and-morty-project-two.vercel.app/locations" target="_blank">aqui</a>.
+# Veja mais <a href="https://rick-and-morty-project-two.vercel.app/" target="_blank">aqui</a>.
 
 # Getting Started with Create React App
 
