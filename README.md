@@ -1,3 +1,5 @@
+# Veja mais <a href="https://rick-and-morty-project-two.vercel.app/locations" target="_blank">aqui</a>.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
