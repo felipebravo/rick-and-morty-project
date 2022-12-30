@@ -9,7 +9,7 @@ export const MainLocations = () => {
     <Background>
       <Header />
       <MainLocation />
-      <Search />
+      {/* <Search /> */}
     </Background>
   );
 };

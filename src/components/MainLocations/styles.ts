@@ -6,7 +6,7 @@ export const StyledMainLocation = styled.main`
   left: 25%;
 
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 20px;
 
   width: 70%;

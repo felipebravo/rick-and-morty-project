@@ -11,9 +11,12 @@ interface iApiProvider {
   handleModal(): void;
   isModalOpen: boolean;
   characters: iCharacter[];
-  locations: iLocation[];
   nextPage: () => void;
   previousPage: () => void;
+  setLocations: React.Dispatch<React.SetStateAction<iLocation[]>>;
+  locations: iLocation[];
+  setLocationsPage: React.Dispatch<React.SetStateAction<number>>;
+  locationsPage: number;
 }
 
 interface iOrigin {
@@ -53,39 +56,28 @@ export const ApiProvider = ({ children }: iProviderProps) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [characters, setCharacters] = useState<iCharacter[]>([]);
   const [locations, setLocations] = useState<iLocation[]>([]);
-  const [residents, setResidents] = useState<string[]>([]);
-  const [page, setPage] = useState<number>(1);
+  // const [residents, setResidents] = useState<string[]>([]);
+  const [charactersPage, setCharactersPage] = useState(1);
+  const [locationsPage, setLocationsPage] = useState(0);
 
   useEffect(() => {
     const getCharacters = async () => {
       try {
-        const response = await api.get(`character/?page=${page}`);
+        const response = await api.get(`character/?page=${charactersPage}`);
         setCharacters(response.data.results);
       } catch (error) {
         console.error(error);
       }
     };
     getCharacters();
-  }, [page]);
-
-  useEffect(() => {
-    const getLocations = async () => {
-      try {
-        const response = await api.get(`location`);
-        setLocations(response.data.results);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getLocations();
-  }, []);
+  }, [charactersPage]);
 
   const nextPage = () => {
-    setPage(page + 1);
+    setCharactersPage(charactersPage + 1);
   };
 
   const previousPage = () => {
-    page > 1 && setPage(page - 1);
+    charactersPage > 1 && setCharactersPage(charactersPage - 1);
   };
 
   const handleModal = () => {
@@ -101,9 +93,12 @@ export const ApiProvider = ({ children }: iProviderProps) => {
           handleModal,
           isModalOpen,
           characters,
-          locations,
           nextPage,
           previousPage,
+          setLocations,
+          locations,
+          setLocationsPage,
+          locationsPage,
         }}
       >
         {children}
