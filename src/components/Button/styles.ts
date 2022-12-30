@@ -3,7 +3,7 @@ import BackgroundButton from "../../assets/Button.svg";
 
 export const Button = styled.button`
   width: 130px;
-  height: 100px;
+  height: 110px;
 
   border-radius: 50%;
 

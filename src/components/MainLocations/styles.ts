@@ -6,11 +6,10 @@ export const StyledMainLocation = styled.main`
   left: 25%;
 
   display: flex;
-  flex-direction: column;
   gap: 20px;
 
   width: 70%;
-  height: 60%;
+  height: 50%;
 `;
 
 export const StyledUlLocations = styled.ul`
@@ -24,13 +23,23 @@ export const StyledUlLocations = styled.ul`
   overflow-y: auto;
 
   background-color: var(--opacity-black);
+
+  h2 {
+    color: var(--primary-blue);
+    align-self: center;
+    margin-bottom: 20px;
+
+    font-size: 32px;
+  }
 `;
 
 export const StyledCardLocations = styled.li`
-  cursor: pointer;
-
-  h3 {
+  button {
+    display: contents;
     color: var(--primary-red);
+    background-color: transparent;
+    font-family: monospace, sans-serif;
+    font-size: 24px;
   }
 
   .Planet {

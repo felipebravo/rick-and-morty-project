@@ -6,9 +6,8 @@ interface iProviderProps {
 }
 
 interface iApiProvider {
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  isLoading: boolean;
-  handleModal(): void;
+  openModal: (resident: iCharacter) => void;
+  closeModal: () => void;
   isModalOpen: boolean;
   characters: iCharacter[];
   nextPage: () => void;
@@ -17,6 +16,11 @@ interface iApiProvider {
   locations: iLocation[];
   setLocationsPage: React.Dispatch<React.SetStateAction<number>>;
   locationsPage: number;
+  setResidents: React.Dispatch<React.SetStateAction<iCharacter[]>>;
+  residents: iCharacter[];
+  residentsByLocation: (location: string[]) => void;
+  residentDetails: iCharacter | null;
+  setResidentDetails: React.Dispatch<React.SetStateAction<iCharacter | null>>;
 }
 
 interface iOrigin {
@@ -30,11 +34,11 @@ export interface iCharacter {
   gender: string;
   id: number;
   image: string;
-  location: {};
+  location: iOrigin;
   name: string;
   origin: iOrigin;
   species: string;
-  status: string;
+  status: "Alive" | "Dead" | "unknown";
   type: string;
   url: string;
 }
@@ -52,11 +56,13 @@ export interface iLocation {
 export const ApiContext = createContext({} as iApiProvider);
 
 export const ApiProvider = ({ children }: iProviderProps) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [characters, setCharacters] = useState<iCharacter[]>([]);
   const [locations, setLocations] = useState<iLocation[]>([]);
-  // const [residents, setResidents] = useState<string[]>([]);
+  const [residents, setResidents] = useState<iCharacter[]>([]);
+  const [residentDetails, setResidentDetails] = useState<iCharacter | null>(
+    null
+  );
   const [charactersPage, setCharactersPage] = useState(1);
   const [locationsPage, setLocationsPage] = useState(0);
 
@@ -80,17 +86,35 @@ export const ApiProvider = ({ children }: iProviderProps) => {
     charactersPage > 1 && setCharactersPage(charactersPage - 1);
   };
 
-  const handleModal = () => {
+  const openModal = (resident: iCharacter) => {
     setIsModalOpen(!isModalOpen);
+
+    setResidentDetails(resident);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const residentsByLocation = async (residents: string[]) => {
+    setResidents([]);
+    residents.map(async (resident: string) => {
+      try {
+        const characterId = resident.slice(42);
+        const response = await api.get(`character/${characterId}`);
+        setResidents((oldResidents) => [...oldResidents, response.data]);
+      } catch (error) {
+        console.error(error);
+      }
+    });
   };
 
   return (
     <>
       <ApiContext.Provider
         value={{
-          setIsLoading,
-          isLoading,
-          handleModal,
+          openModal,
+          closeModal,
           isModalOpen,
           characters,
           nextPage,
@@ -99,6 +123,11 @@ export const ApiProvider = ({ children }: iProviderProps) => {
           locations,
           setLocationsPage,
           locationsPage,
+          setResidents,
+          residents,
+          residentsByLocation,
+          residentDetails,
+          setResidentDetails,
         }}
       >
         {children}

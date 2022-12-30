@@ -5,17 +5,18 @@ import {
 } from "./styles";
 import { useContext, useEffect } from "react";
 import { ApiContext } from "../../contexts";
-import { Modal } from "../../components/Modals";
 import { api } from "../../services/api";
 import { ScrollAutoReq } from "../ScrollAutoRec";
+import { Residents } from "../Residents";
 
 export const MainLocation = () => {
   const {
-    isModalOpen,
     locations,
     setLocations,
     locationsPage,
     setLocationsPage,
+    residents,
+    residentsByLocation,
   } = useContext(ApiContext);
 
   useEffect(() => {
@@ -35,7 +36,12 @@ export const MainLocation = () => {
       <StyledUlLocations>
         {locations?.map((location) => (
           <StyledCardLocations key={location.id}>
-            <h3 className={location.type}>{location.name}</h3>
+            <button
+              className={location.type}
+              onClick={() => residentsByLocation(location.residents)}
+            >
+              {location.name}
+            </button>
           </StyledCardLocations>
         ))}
         <ScrollAutoReq
@@ -46,7 +52,7 @@ export const MainLocation = () => {
           }
         />
       </StyledUlLocations>
-      {isModalOpen && <Modal />}
+      {residents.length > 0 && <Residents />}
     </StyledMainLocation>
   );
 };
