@@ -6,12 +6,31 @@ export const StyledResidents = styled.div`
 
   text-align: center;
 
-  h2 {
-    color: var(--primary-blue);
+  div {
+    position: relative;
 
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    font-size: 32px;
+    h2 {
+      color: var(--primary-blue);
+
+      margin-bottom: 20px;
+
+      font-size: 32px;
+    }
+
+    button {
+      position: absolute;
+      right: 0px;
+
+      background-color: transparent;
+
+      font-size: 24px;
+
+      color: var(--primary-red);
+    }
   }
 `;
 

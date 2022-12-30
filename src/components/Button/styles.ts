@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BackgroundButton from "../../assets/Button.svg";
+import BackgroundButton from "../../assets/button.svg";
 
 export const Button = styled.button`
   width: 130px;

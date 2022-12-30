@@ -8,6 +8,7 @@ import { ApiContext } from "../../contexts";
 import { api } from "../../services/api";
 import { ScrollAutoReq } from "../ScrollAutoRec";
 import { Residents } from "../Residents";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 export const MainLocation = () => {
   const {
@@ -52,7 +53,17 @@ export const MainLocation = () => {
           }
         />
       </StyledUlLocations>
-      {residents.length > 0 && <Residents />}
+      {residents.length > 0 ? (
+        <Residents />
+      ) : (
+        <Player
+          autoplay={true}
+          loop={true}
+          controls={false}
+          src="https://assets6.lottiefiles.com/packages/lf20_qqtavvc0.json"
+          style={{ height: "400px", width: "90%" }}
+        ></Player>
+      )}
     </StyledMainLocation>
   );
 };
