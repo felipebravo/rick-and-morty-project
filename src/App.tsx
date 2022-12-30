@@ -1,11 +1,16 @@
-import React from "react";
+import { GlobalStyle } from "./styles";
+import { ApiProvider } from "./contexts/index";
+import { MainRoutes } from "./routes";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <></>
-    </div>
+    <>
+      <GlobalStyle />
+      <ApiProvider>
+        <MainRoutes />
+      </ApiProvider>
+    </>
   );
-}
+};
 
 export default App;
