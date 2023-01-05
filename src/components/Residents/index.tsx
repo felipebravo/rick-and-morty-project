@@ -4,15 +4,23 @@ import { Modal } from "../Modals";
 import {
   StyledCardResidents,
   StyledResidents,
+  StyledResidentsHeader,
   StyledUlResidents,
 } from "./styles";
+import { SlClose } from "react-icons/sl";
 
 export const Residents = () => {
-  const { residents, openModal, isModalOpen } = useContext(ApiContext);
+  const { residents, setResidents, openModal, isModalOpen } =
+    useContext(ApiContext);
 
   return (
     <StyledResidents>
-      <h2>Residents</h2>
+      <StyledResidentsHeader>
+        <h2>Residents</h2>
+        <button onClick={() => setResidents([])}>
+          <SlClose />
+        </button>
+      </StyledResidentsHeader>
       <StyledUlResidents>
         {residents.map((resident) => (
           <StyledCardResidents>

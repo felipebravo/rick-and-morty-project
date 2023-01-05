@@ -5,6 +5,13 @@ export const StyledResidents = styled.div`
   height: 100%;
 
   text-align: center;
+`;
+
+export const StyledResidentsHeader = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   h2 {
     color: var(--primary-blue);
@@ -12,6 +19,14 @@ export const StyledResidents = styled.div`
     margin-bottom: 20px;
 
     font-size: 32px;
+  }
+
+  button {
+    position: absolute;
+    right: 0px;
+    background-color: transparent;
+    font-size: 24px;
+    color: var(--primary-red);
   }
 `;
 

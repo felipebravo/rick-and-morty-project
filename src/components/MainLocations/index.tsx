@@ -8,6 +8,7 @@ import { ApiContext } from "../../contexts";
 import { api } from "../../services/api";
 import { ScrollAutoReq } from "../ScrollAutoRec";
 import { Residents } from "../Residents";
+import { EmptyResidents } from "../EmptyResidents";
 
 export const MainLocation = () => {
   const {
@@ -52,7 +53,7 @@ export const MainLocation = () => {
           }
         />
       </StyledUlLocations>
-      {residents.length > 0 && <Residents />}
+      {residents.length > 0 ? <Residents /> : <EmptyResidents />}
     </StyledMainLocation>
   );
 };
