@@ -3,8 +3,23 @@ import styled from "styled-components";
 export const StyledResidents = styled.div`
   width: 60%;
   height: 100%;
+  padding: 5px;
 
   text-align: center;
+
+  overflow-y: hidden;
+
+  @media (max-width: 1200px) {
+    height: 80%;
+  }
+
+  @media (max-width: 1030px) {
+    width: 40%;
+  }
+
+  @media (max-width: 1030px) {
+    width: 60%;
+  }
 `;
 
 export const StyledResidentsHeader = styled.div`
@@ -23,10 +38,21 @@ export const StyledResidentsHeader = styled.div`
 
   button {
     position: absolute;
-    right: 0px;
+    top: 0;
+    right: 5px;
     background-color: transparent;
     font-size: 24px;
     color: var(--primary-red);
+  }
+
+  @media (max-width: 430px) {
+    h2 {
+      font-size: 24px;
+    }
+
+    button {
+      font-size: 16px;
+    }
   }
 `;
 

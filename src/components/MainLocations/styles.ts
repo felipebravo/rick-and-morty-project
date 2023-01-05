@@ -10,6 +10,22 @@ export const StyledMainLocation = styled.main`
 
   width: 70%;
   height: 50%;
+
+  @media (max-width: 1330px) {
+    left: 30%;
+  }
+
+  @media (max-width: 790px) {
+    left: 10%;
+
+    width: 80%;
+  }
+
+  @media (max-width: 640px) {
+    left: 5%;
+
+    width: 95%;
+  }
 `;
 
 export const StyledUlLocations = styled.ul`
@@ -30,6 +46,18 @@ export const StyledUlLocations = styled.ul`
     margin-bottom: 20px;
 
     font-size: 32px;
+  }
+
+  @media (max-width: 1200px) {
+    height: 80%;
+  }
+
+  @media (max-width: 1030px) {
+    width: 50%;
+  }
+
+  @media (max-width: 430px) {
+    width: 80%;
   }
 `;
 
@@ -52,5 +80,11 @@ export const StyledCardLocations = styled.li`
 
   .Microverse {
     color: var(--primary-yellow);
+  }
+
+  @media (max-width: 540px) {
+    button {
+      font-size: 16px;
+    }
   }
 `;
