@@ -69,7 +69,7 @@ export const ModalStyled = styled.div<iBackgroundVariationsProps>`
   button {
     position: absolute;
     left: 10px;
-    top: 10px;
+    top: 15px;
 
     background-color: transparent;
 

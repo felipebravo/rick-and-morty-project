@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SearchAndGif = styled.div`
   position: absolute;
-  bottom: 30%;
+  bottom: 22%;
   left: 0px;
 
   width: fit-content;
@@ -63,5 +63,26 @@ export const SearchAndGif = styled.div`
       width: 150%;
       align-self: center;
     }
+  }
+
+  @media (max-width: 1160px) {
+    bottom: 30%;
+
+    .input {
+      width: 120px;
+
+      ::placeholder {
+        color: transparent;
+      }
+    }
+
+    .gif__style {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  @media (max-width: 790px) {
+    display: none;
   }
 `;

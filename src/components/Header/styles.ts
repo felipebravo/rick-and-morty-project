@@ -4,7 +4,7 @@ export const HeaderStyled = styled.header`
   display: flex;
   justify-content: space-between;
 
-  width: 100vw;
+  width: 100%;
 
   padding: 20px;
 
@@ -21,5 +21,11 @@ export const HeaderStyled = styled.header`
 
   .navigation__spotify {
     width: 80px;
+  }
+
+  @media (max-width: 720px) {
+    div:nth-child(2) {
+      display: none;
+    }
   }
 `;

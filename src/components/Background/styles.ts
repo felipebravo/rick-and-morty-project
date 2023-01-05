@@ -11,6 +11,8 @@ export const Background = styled.div`
   width: 100vw;
   height: 100vh;
 
+  padding: 0px 60px;
+
   background-image: url(${BackgroundImg});
   background-size: cover;
 

@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import BackgroundButton from "../../assets/Button.svg";
+import BackgroundButton from "../../assets/button.svg";
 
 export const Button = styled.button`
-  width: 130px;
+  width: 120px;
   height: 110px;
 
   border-radius: 50%;
@@ -37,5 +37,15 @@ export const Button = styled.button`
     to {
       transform: rotate(360deg);
     }
+  }
+
+  @media (max-width: 890px) {
+    width: 90px;
+    height: 90px;
+  }
+
+  @media (max-width: 370px) {
+    width: 50px;
+    height: 40px;
   }
 `;
