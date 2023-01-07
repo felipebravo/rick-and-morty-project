@@ -65,9 +65,11 @@ export const SearchAndGif = styled.div`
     }
   }
 
-  @media (max-width: 1160px) {
+  @media (max-width: 1320px) {
     bottom: 30%;
+  }
 
+  @media (max-width: 1160px) {
     .input {
       width: 120px;
 

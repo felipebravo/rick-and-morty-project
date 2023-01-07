@@ -1,51 +1,20 @@
 import styled from "styled-components";
-import BackgroundButton from "../../assets/button.svg";
 
 export const Button = styled.button`
-  width: 120px;
-  height: 110px;
+  width: fit-content;
+  height: fit-content;
 
-  border-radius: 50%;
+  background-color: transparent;
 
-  background-image: url(${BackgroundButton});
-  background-repeat: no-repeat;
-  background-size: 190%;
-  background-position: center;
-
-  animation: spinnerButton 5s linear infinite;
+  :hover {
+    filter: brightness(2);
+  }
 
   span {
-    display: none;
-
     font-size: 1.7rem;
     font-family: "Get Schwifty", sans-serif;
     font-weight: 700;
-  }
 
-  &:hover {
-    animation: none;
-
-    span {
-      display: unset;
-    }
-  }
-
-  @keyframes spinnerButton {
-    from {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @media (max-width: 890px) {
-    width: 90px;
-    height: 90px;
-  }
-
-  @media (max-width: 370px) {
-    width: 50px;
-    height: 40px;
+    color: var(--primary-green);
   }
 `;

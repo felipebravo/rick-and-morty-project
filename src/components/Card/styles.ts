@@ -26,6 +26,21 @@ export const StyledCard = styled.li`
 
     padding: 10px;
     border-radius: 8px;
+
+    text-align: center;
+  }
+
+  @media (max-width: 620px) {
+    img {
+      width: 80px;
+      height: 80px;
+    }
+
+    div {
+      height: 100px;
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
   }
 
   .Alive {

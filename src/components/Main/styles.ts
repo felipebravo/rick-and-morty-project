@@ -11,6 +11,13 @@ export const StyledMain = styled.main`
 
   width: 70%;
 
+  .divPages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   @media (max-width: 1290px) {
     left: 30%;
   }
@@ -19,6 +26,16 @@ export const StyledMain = styled.main`
     left: 10%;
 
     width: 80%;
+  }
+
+  @media (max-width: 620px) {
+    flex-direction: column;
+
+    .divPages {
+      div {
+        display: none;
+      }
+    }
   }
 `;
 
